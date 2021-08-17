@@ -9,6 +9,8 @@ This is useful if you want to keep the bucket private.
 
 Strapi is fetching the images by doing a client side request. You need to allow these request, otherwise the images won't show up in Strapi.
 
+This version added CDN URL for public acces. You can use it by adding cnd option in plugins.js
+
 ## Configurations
 
 Your configuration is passed down to the provider. (e.g: `new AWS.S3(config)`). You can see the complete list of options [here](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property)
@@ -28,6 +30,7 @@ module.exports = ({ env }) => ({
       accessKeyId: env('AWS_ACCESS_KEY_ID'),
       secretAccessKey: env('AWS_ACCESS_SECRET'),
       region: env('AWS_REGION'),
+      cdn: env('AWS_CDN'),
       params: {
         Bucket: env('AWS_BUCKET'),
       },
